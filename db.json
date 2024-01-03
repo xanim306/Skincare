@@ -1,0 +1,187 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "On Sale",
+      "icon": "1.svg",
+      "color" : "red"
+    },
+    {
+      "id": 2,
+      "name": "Featured",
+      "icon": "2.svg"
+    },
+    {
+      "id": 3,
+      "name": "Masks",
+      "icon": "3.svg"
+    },
+    {
+      "id": 4,
+      "name": "Eye Care",
+      "icon": "4.svg"
+    },
+    {
+      "id": 5,
+      "name": "Moisturizers",
+      "icon": "5.svg"
+    },
+    {
+      "id": 6,
+      "name": "Treatments",
+      "icon": "6.svg"
+    },
+    {
+      "id": 7,
+      "name": "Night Care",
+      "icon": "7.svg"
+    },
+    {
+      "id": 8,
+      "name": "Sun Care",
+      "icon": "8.svg"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Sun Cream",
+      "oldprice": 30,
+      "newprice": 20,
+      "image": "https://s3-alpha-sig.figma.com/img/554b/bddd/df37255679d966642094b703cd2a22b9?Expires=1698624000&Signature=gIuujDdZDK6Fy3NhYe8VPoltxcY8xEr-TeHxEthSAu1pNeH6fsQ4ESXfdbFWBKB2f7ejGKK~TLkVMolQa4fCzgJJbFqzhoDPZir0Q68Y9MXmZCkyMYl4a4bEsG0f5vHhC5wZWRAmI-bZTeHxmTipeMK0UrfGd61UbpW8GXIoEj0adY8UKzt3RO0Pxl4d84JXJ6fZrkz2GOZCIkklzgJqjMmhyIQMD0ZMHIjE-ftmtLHlkQXNRrLAXzT~32XtJgz5QCnvQvfC3l-xZLWzgfTWZdRAZMgE06v5rCtY6PzwLnZs2QsEz1VuThg3DHbWt2T5PicnZBQFoNb8DWBblyxzKQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+      "category_id": 8
+    },
+    {
+      "id": 2,
+      "name": "Night Eye Cream",
+      "oldprice": 100,
+      "newprice": 50,
+      "image":"https://s3-alpha-sig.figma.com/img/2c55/2673/8ed52c8fcf61d8bba0533e6808aa2edb?Expires=1699228800&Signature=MbAn4gR2kl14QULUhsHYsM87JWHcORCxEG6U3Amb7KqLL6F38-LWiQXKEP2OV8UMPVIABW8Y2ZG~eeVKeuVO0Utz-mlX-sKI9r9i~iGg6Q11hGsyWoPWPszVHNrRQ16NFZCg723hMPhw1GPJ3Ra1y3lrmLF2zBk-o59pdzr8PQSF5utB-~hFQlhGP1O2-7Ed-41o87yjjhAnHJIpc50RZzw1mDFvQLros4TxF6vMO6G2T4sh3Dw~8icBrK9jlhF4rGwFxGr0XLfPK97-x6PNIn0dCtcaM0Bp2Fz1ZpyEtogehpakl8U6bxzxydEDBWez0rjfhHBo2nj0EraYcAcDTg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+      "category_id": 4
+    },
+    {
+      "id": 3,
+      "name": "Acne Skin Gel",
+      "oldprice": 0,
+      "newprice": 25,
+      "image": "https://s3-alpha-sig.figma.com/img/435f/ab57/3270869705b94df239d0e0d6d3cb8479?Expires=1693785600&Signature=aLHvh7gWfsg-2XXqQ0Ux0g5Qf4NlR4K9OBT3fYJPIVpd6Qb6HTcdv3IlFmdul4ZFJb9YImkOYv8dAQf9Zz4faTg8adF7IHHy6SVCp7qzQHQGKt2TCE2blxHYMOIklFNjYCBC1pYVmaIksiLQc76YmmzncCEvZal~xzn3FbEPT41zRa1ELYo7XT-I8ksF8m1hF~zNPtZnmGPQ1dnftfcs9DfwFxRQgomvE2p4l7YJ6yc6bIXaeruO4nYU8c8W2b84k4r0mXhALfnCkBXtuddt1quMc5g0LqLAsRZjgl4rZK6Y-9lK1CpWSx4AYRM3~XnqEjSWLwZv~1aDW5ZPH3BKWw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+      "category_id": 6
+    },
+    {
+      "id": 4,
+      "name": "Dry Skin Rescue",
+      "oldprice": 0,
+      "newprice": 59,
+      "image": "https://s3-alpha-sig.figma.com/img/f81c/dabf/a35be2c1696c9ebf1ee83e0f2a7dd75c?Expires=1693785600&Signature=NiOPuMYwCiMCKzjjhyYv9SdTj7ZF9hWNj04BZV8HjAgpk-46C4MlxJR~UiwU1hggj2FEPw~ZyNy70rPpRYmdI8GY~DTcr75-roFkhCEOMABZqTrYS7-YgmkIj-sNFMigCM6H~GZOwGr0aIhOEWOl1wivpWMXbxmh3-xL6anGKypbfjFXuDC9msF3Z0sBNCxkbllDZJhTfe-zYj4~GEDptadGVKbbpJ9Z~8wyZOeIK1Q56rB3VNkUqhduuPv~nd1WFlpsWyYrKaMYphT9BQA~TAtTDPhxUVyEEPfo-W0YY12Eekyj3yR5Uq9cJ92IO11yGxEWU4VEeZlwt-VKRSpjCw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+      "category_id": 5
+    },
+    {
+      "id": 5,
+      "name": "Body Protection",
+      "oldprice": 0,
+      "newprice": 32,
+      "image": "https://s3-alpha-sig.figma.com/img/022b/31be/be20f1ba535ef624bff6d7385256e658?Expires=1693785600&Signature=Lmo7VST4dl1JVVoKHnxyigOYG68IpNRGPpI3cik9CnD0Ko9j8o4HkHY-vNBYEE5P8g7UIClHN5vNPuOUi~ee0FcJwpc7eZnZkod3LlGe-Odcy~lZcDy1TodymVXNl5~7SsFaHGxccSvTAS6s0KWQU16AGQxttHtoC-Dqs2vZtXozHYt1xk8KkLt2ZCFAtpxIM4PgJVzISRcbnJREgkCelpnyBXvMONzOqArjMjtc1r1npaDFXEWFgBvqcFw0mE5E9nnqWDbhsdAEo9-VdRnaRpWTGydKW0PsqAsp51PdPPk850b3SZtpO5m03d2VUH3AXMZY~JQzZ~cTIvxi6wrbZg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+      "category_id": 6
+    },
+    {
+      "id": 6,
+      "name": "All In One Gel",
+      "oldprice": 0,
+      "newprice": 79,
+      "image": "https://s3-alpha-sig.figma.com/img/81a6/b2bb/d2b5e670dd3c0c0a0451758e0ddb7434?Expires=1693785600&Signature=dEJuutk7mzInk3ETAT4l-60QBXf5uhnfjTWB7GzhfkdHOrPSjf0i52bjMOBxbIk72z6ys9gkYMqoVMy70SkTKDHr0RSd9CPsl0J1Shln7HJQTwnKMstSAYe2CsY8iET7HT5TUoT3H9~8jTx78fn2rDJDbTIaVh-VEg5NDS7~sWa00XJcFrxeVoF0nCq-~5bB9kNLZOS538htR0sl3RS-PH4yfXQK46Fy1zRv1AtmQJAbUFlzKer~bB07SvSOl6gvHdw~Y55LSsEECPIPV4tUKXGnjZ2LrHHPb4fC8aBfA84sW1X6CyNYh~TJjNmVxkbIVJ44yh~DKesyQxRYslNfZg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+      "category_id": 2
+    },
+    {
+      "id": 7,
+      "name": "Deep Treatment",
+      "oldprice": 22,
+      "newprice": 17,
+      "image": "https://s3-alpha-sig.figma.com/img/d801/bb8e/b33ea2dee65daab236e3bb06c604f30c?Expires=1693785600&Signature=Km~M6U2wMEExawvyT-igvE3sjBixwEcL5FgusQJe9gQASiqoWKh9oqIpqhjwQnAKhNzkDPHpHhNJP4ornFs-nbH6ODeKq2GUhmhqmkYB6dRZYOE0LwX1Mnac8XT8DY91KKszcf15vK0ktMuNi8KbE6HtN55CYFY70t-Xx0QZ2hTZr36BXyIWbYf69ShAxd8B2GsyTC31Y9JGwIvlWaeKnAgg4RtbtNm81iBYLJOckM-AfHCqIzdYbxlxfABkgCF4V8SFFTqilNRGbTszo8~qCqYEbjbuIsinYhjmWY8~kXiclg-hStH4coAzflve5eMQUtBsajHvIJuKLlN8c4yEtA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+      "category_id": 1
+    },
+    {
+      "id": 8,
+      "name": "Morning Shine",
+      "oldprice": 0,
+      "newprice": 14,
+      "image": "https://s3-alpha-sig.figma.com/img/0a79/bc39/318038cc88ba9376c3fc4367a3c22c66?Expires=1697414400&Signature=MyjoVFlBh00yvnYZY2GN59CmQWyyD4oiIIz62OZBCCHoWYZ2nb-PJ5ESLk0-32XeYkvS6OBj8L6aqdnu5AN0tvxwqgOjXfeNYp~fQmkD2CIDPThcTQgpA--oCEDmIq5fpPkn7qp0vBkINA2KIHMY95ZXcITMSAvpIYT5ohuW2QHfPrLit33BMPOX2NOYm94EgU037Du0zW5cfG1Rd4Kb4mYNYkDXLigk7IDIuD3AzFovsj09HNC9ap1CBZ4ui8R-zqXeoVChzgl9uuUNDvmddl2pkrK3KdnawX51h7VnyoGccfZTlJB2etTXk179USOjL7Qit1OZWNBDQ6xFTc7gSQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+      "category_id":4
+    },
+    {
+      "id": 9,
+      "name": "Morning Shine",
+      "oldprice": 0,
+      "newprice": 14,
+      "image": "https://s3-alpha-sig.figma.com/img/0a79/bc39/318038cc88ba9376c3fc4367a3c22c66?Expires=1697414400&Signature=MyjoVFlBh00yvnYZY2GN59CmQWyyD4oiIIz62OZBCCHoWYZ2nb-PJ5ESLk0-32XeYkvS6OBj8L6aqdnu5AN0tvxwqgOjXfeNYp~fQmkD2CIDPThcTQgpA--oCEDmIq5fpPkn7qp0vBkINA2KIHMY95ZXcITMSAvpIYT5ohuW2QHfPrLit33BMPOX2NOYm94EgU037Du0zW5cfG1Rd4Kb4mYNYkDXLigk7IDIuD3AzFovsj09HNC9ap1CBZ4ui8R-zqXeoVChzgl9uuUNDvmddl2pkrK3KdnawX51h7VnyoGccfZTlJB2etTXk179USOjL7Qit1OZWNBDQ6xFTc7gSQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+      "category_id":4
+    },
+    {
+      "id": 10,
+      "name": "Morning Shine",
+      "oldprice": 0,
+      "newprice": 14,
+      "image": "https://s3-alpha-sig.figma.com/img/0a79/bc39/318038cc88ba9376c3fc4367a3c22c66?Expires=1697414400&Signature=MyjoVFlBh00yvnYZY2GN59CmQWyyD4oiIIz62OZBCCHoWYZ2nb-PJ5ESLk0-32XeYkvS6OBj8L6aqdnu5AN0tvxwqgOjXfeNYp~fQmkD2CIDPThcTQgpA--oCEDmIq5fpPkn7qp0vBkINA2KIHMY95ZXcITMSAvpIYT5ohuW2QHfPrLit33BMPOX2NOYm94EgU037Du0zW5cfG1Rd4Kb4mYNYkDXLigk7IDIuD3AzFovsj09HNC9ap1CBZ4ui8R-zqXeoVChzgl9uuUNDvmddl2pkrK3KdnawX51h7VnyoGccfZTlJB2etTXk179USOjL7Qit1OZWNBDQ6xFTc7gSQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+      "category_id":4
+    },
+    {
+      "id": 11,
+      "name": "Morning Shine",
+      "oldprice": 0,
+      "newprice": 14,
+      "image": "https://s3-alpha-sig.figma.com/img/0a79/bc39/318038cc88ba9376c3fc4367a3c22c66?Expires=1697414400&Signature=MyjoVFlBh00yvnYZY2GN59CmQWyyD4oiIIz62OZBCCHoWYZ2nb-PJ5ESLk0-32XeYkvS6OBj8L6aqdnu5AN0tvxwqgOjXfeNYp~fQmkD2CIDPThcTQgpA--oCEDmIq5fpPkn7qp0vBkINA2KIHMY95ZXcITMSAvpIYT5ohuW2QHfPrLit33BMPOX2NOYm94EgU037Du0zW5cfG1Rd4Kb4mYNYkDXLigk7IDIuD3AzFovsj09HNC9ap1CBZ4ui8R-zqXeoVChzgl9uuUNDvmddl2pkrK3KdnawX51h7VnyoGccfZTlJB2etTXk179USOjL7Qit1OZWNBDQ6xFTc7gSQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+      "category_id":4
+    },
+    {
+      "id": 12,
+      "name": "Morning Shine",
+      "oldprice": 0,
+      "newprice": 14,
+      "image": "https://s3-alpha-sig.figma.com/img/0a79/bc39/318038cc88ba9376c3fc4367a3c22c66?Expires=1697414400&Signature=MyjoVFlBh00yvnYZY2GN59CmQWyyD4oiIIz62OZBCCHoWYZ2nb-PJ5ESLk0-32XeYkvS6OBj8L6aqdnu5AN0tvxwqgOjXfeNYp~fQmkD2CIDPThcTQgpA--oCEDmIq5fpPkn7qp0vBkINA2KIHMY95ZXcITMSAvpIYT5ohuW2QHfPrLit33BMPOX2NOYm94EgU037Du0zW5cfG1Rd4Kb4mYNYkDXLigk7IDIuD3AzFovsj09HNC9ap1CBZ4ui8R-zqXeoVChzgl9uuUNDvmddl2pkrK3KdnawX51h7VnyoGccfZTlJB2etTXk179USOjL7Qit1OZWNBDQ6xFTc7gSQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+      "category_id":4
+    }
+  ],
+  "blog":[
+{
+  "id":1,
+  "title":"Morning Skincare Routine: 10 Top Tips for you",
+  "text":"TOP TIPS",
+  "image":"blog1.png"
+},
+{
+  "id":2,
+  "title":"New Collection is Out",
+  "text":"NEW IN",
+  "image":"blog2.png"
+},
+{
+  "id":3,
+  "title":"Always Stay Fresh",
+  "text":"HOW TO",
+  "image":"blog3.png"
+},
+{
+  "id":4,
+  "title":"Improve your Skin now",
+  "text":"MASKS",
+  "image":"blog4.png"
+},
+{
+  "id":5,
+  "title":"Stay Safe in the Sun",
+  "text":"SUN CARE",
+  "image":"blog5.png"
+},
+{
+  "id":6,
+  "title":"Explore our Bestselling Products",
+  "text":"BESTSELLERS",
+  "image":"blog6.png"
+},
+{
+  "id":7,
+  "title":"5 Great Tips to Get that Perfect Skin",
+  "text":"TOP TIPS",
+  "image":"blog7.png"
+}
+  ]
+}

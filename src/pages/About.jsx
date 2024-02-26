@@ -11,12 +11,16 @@ function About() {
             <p className="subtitle">- Learn More</p>
             <p className="title">All About Us</p>
 
-            <div className="about_bg"></div>
+            <div className="about_bg">
+              <img src="./about/Image.png" alt="" />
+            </div>
             <section className="about_info">
               <div className="about_left">
                 <p className="subtitle">- How it has Started</p>
                 <p className="title">How and When it has All Started</p>
-                <div className="info_bg"></div>
+                <div className="info_bg">
+                  <img src="./about/Image2.png" alt="" />
+                </div>
               </div>
               <div className="about_right">
                 <h3>
@@ -135,7 +139,10 @@ function About() {
           </div>
         </div>
       </div>
+      <div className="container">
       <Newsletter />
+      </div>
+      
     </>
   );
 }

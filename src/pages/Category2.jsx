@@ -53,7 +53,10 @@ function Category2({ products, API_IMAGE, API_PRODUCTS }) {
           </div>
         </div>
       </section>
+      <div className="container">
       <Newsletter />
+      </div>
+      
     </>
   );
 }

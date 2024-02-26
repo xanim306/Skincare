@@ -1,6 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
+// import DarkModeToggle from './DarkModeToggle';
 const Home = lazy(() => import("./pages/Home"));
 const Category = lazy(() => import("./pages/Category"));
 const Blog = lazy(() => import("./pages/Blog"));
@@ -12,6 +13,8 @@ const Careers = lazy(() => import("./pages/Careers"));
 const Products = lazy(() => import("./pages/Products"));
 const Product = lazy(() => import("./pages/Product"));
 const Category2 = lazy(() => import("./pages/Category2"));
+const ShoppingCard=lazy(()=>import("./pages/ShoppingCard"));
+const CheckoutPage=lazy(()=>import("./pages/CheckoutPage"))
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -19,6 +22,28 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 
 function App({ dispatch, products, API_PRODUCTS }) {
+  // const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // const toggleDarkMode = () => {
+  //   setIsDarkMode(!isDarkMode);
+  //   if (!isDarkMode) {
+  //     document.documentElement.classList.add('dark-mode');
+  //   } else {
+  //     document.documentElement.classList.remove('dark-mode');
+  //   }
+  // };
+
+
+
+
+
+
+
+
+
+
+
+
   useEffect(() => {
     fetch("http://127.0.0.1:8000/products/categories/", {
       method: "GET",
@@ -75,7 +100,6 @@ function App({ dispatch, products, API_PRODUCTS }) {
       path: "/products",
       element: <Products />,
     },
-
     {
       path: "/:id/product",
       element: <Product />,
@@ -103,6 +127,14 @@ function App({ dispatch, products, API_PRODUCTS }) {
     {
       path: "/careers",
       element: <Careers />,
+    },
+    {
+      path:"/shoppingcard",
+      element:<ShoppingCard/>
+    },
+    {
+      path:"/checkout",
+      element:<CheckoutPage/>
     },
   ];
   return (

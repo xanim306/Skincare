@@ -1,4 +1,4 @@
-function ThirdInfo({ formData,errors,handleChange }) {
+function ThirdInfo({ formData, errors, handleChange }) {
   return (
     <>
       <div className="third_info">
@@ -6,28 +6,30 @@ function ThirdInfo({ formData,errors,handleChange }) {
           <label htmlFor="password">Password</label>
           <div className="ps_inp">
             <input
-            name="password"
+              name="password"
               id="password"
               type="password"
               placeholder="Password"
               value={formData.password}
-              onChange={handleChange
-              }
+              onChange={handleChange}
             />
-            {errors.password && <p style={{color:"red"}}>{errors.password}</p>}
+            {errors.password && (
+              <p style={{ color: "red" }}>{errors.password}</p>
+            )}
           </div>
           <label htmlFor="con_password">Confirm Password</label>
           <div className="cps_inp">
             <input
-            name="confirmPassword"
+              name="password_confirm"
               id="con_password"
               type="password"
               placeholder="Confirm Password"
-              value={formData.confirmPassword}
-              onChange={handleChange
-              }
+              value={formData.password_confirm}
+              onChange={handleChange}
             />
-            {errors.confirmPassword && <p style={{color:"red"}}>{errors.confirmPassword}</p>}
+            {errors.password_confirm && (
+              <p style={{ color: "red" }}>{errors.password_confirm}</p>
+            )}
           </div>
         </form>
       </div>

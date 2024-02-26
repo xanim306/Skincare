@@ -22,7 +22,7 @@ function HeaderModal({ categories, setOpen,open }) {
               <NavLink to="/">Home</NavLink>
             </li>
             <li className="has_dropdown">
-              <NavLink to="/categories">Categories</NavLink>
+              <p>Categories</p>
               <ul className="dropdown">
                 {categories[0].children.map((cat) => {
                   return (
@@ -33,14 +33,29 @@ function HeaderModal({ categories, setOpen,open }) {
                 })}
               </ul>
             </li>
-            <li>
+            {/* <li>
               <NavLink to="/blog">Blog</NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink to="/about">About</NavLink>
             </li>
             <li>
               <NavLink to="/contact">Contact</NavLink>
+            </li>
+            <li>
+              <NavLink to="/login">Log in</NavLink>
+            </li>
+            <li>
+              <NavLink to="/signup">Sign up</NavLink>
+            </li>
+            <li>
+              <NavLink to="/careers">Careers</NavLink>
+            </li>
+            <li>
+              <NavLink to="/shoppingcard">Shopping card</NavLink>
+            </li>
+            <li>
+              <NavLink to="/checkout">Checkout</NavLink>
             </li>
           </ul>
         </nav>

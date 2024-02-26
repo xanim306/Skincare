@@ -3,7 +3,7 @@ import { lazy } from "react";
 import { Link } from "react-router-dom";
 const Slide = lazy(() => import("../components/Slide"));
 const Newsletter = lazy(() => import("../components/Newsletter"));
-function Home({ categories, products, API_IMAGE }) {
+function Home({ categories, products, API_IMAGE,words,lang}) {
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0 });
   };
@@ -17,7 +17,7 @@ function Home({ categories, products, API_IMAGE }) {
           <section className="demo">
             <div className="demo_left">
               <h5 className="subtitle">- Skincare Products</h5>
-              <p className="title">We Offer the Best Products for your Skin</p>
+              <p className="title">{words[lang].offer}</p>
               <a href="">Shop Now</a>
             </div>
             <div className="demo_img">

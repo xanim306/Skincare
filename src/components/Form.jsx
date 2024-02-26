@@ -3,27 +3,31 @@ import FirstInfo from "../components/FirstInfo";
 import SecondInfo from "../components/SecondInfo";
 import ThirdInfo from "../components/ThirdInfo";
 import FourthInfo from "../components/FourthInfo";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { Apiservice } from "../services/api_services";
+import Swal from "sweetalert2";
 function Form() {
+  const navigate = useNavigate();
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    name: "",
+    surname: "",
     email: "",
-    confirmEmail: "",
+    email_confirm: "",
     password: "",
-    confirmPassword: "",
+    password_confirm: "",
     age: "",
     country: "",
   });
 
   const [errors, setErrors] = useState({
-    firstName: "",
-    lastName: "",
+    name: "",
+    surname: "",
     email: "",
-    confirmEmail: "",
+    email_confirm: "",
     password: "",
-    confirmPassword: "",
+    password_confirm: "",
     age: "",
     country: "",
   });
@@ -32,19 +36,19 @@ function Form() {
   //   let formErrors = {};
 
   //   if (page === 0) {
-  //     if (formData.firstName=== "") {
-  //       formErrors.firstName = "Please provide a first name";
+  //     if (formData.name=== "") {
+  //       formErrors.name = "Please provide a first name";
   //     }
 
-  //     if (formData.lastName === "") {
-  //       formErrors.lastName = "Please provide a last name";
+  //     if (formData.surname === "") {
+  //       formErrors.surname = "Please provide a last name";
   //     }
   //   } else if (page === 1) {
   //     if (formData.email === "") {
   //       formErrors.email= "Please provide an email";
   //     }
-  //     if (formData.confirmEmail === "") {
-  //       formErrors.confirmEmail = "Please confirm an email";
+  //     if (formData.email_confirm === "") {
+  //       formErrors.email_confirm = "Please confirm an email";
   //     }
 
   //   }
@@ -61,26 +65,26 @@ function Form() {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
 
-    if (name === "firstName") {
-      newErrors.firstName = value.length < 3 ? "First name is too short" : "";
+    if (name === "name") {
+      newErrors.name = value.length < 3 ? "First name is too short" : "";
     }
-    if (name === "lastName") {
-      newErrors.lastName = value.length < 3 ? "Last name is too short" : "";
+    if (name === "surname") {
+      newErrors.surname = value.length < 3 ? "Last name is too short" : "";
     }
     if (name === "email") {
       newErrors.email = !/\S+@\S+\.\S+/.test(value)
         ? "Invalid email format"
         : "";
     }
-    if (name === "confirmEmail") {
-      newErrors.confirmEmail =
+    if (name === "email_confirm") {
+      newErrors.email_confirm =
         value !== formData.email ? "Emails do not match" : "";
     }
     if (name === "password") {
       newErrors.password = value.length < 8 ? "Password is too short" : "";
     }
-    if (name === "confirmPassword") {
-      newErrors.confirmPassword =
+    if (name === "password_confirm") {
+      newErrors.password_confirm =
         value !== formData.password ? "Passwords do not match" : "";
     }
     if (name === "age") {
@@ -95,6 +99,37 @@ function Form() {
   // const handleSubmit = (e) => {
   //   e.preventDefault();
   // };
+
+  function handleSignUp() {
+    Apiservice.register(formData).then((res) => {
+      console.log(res);
+      // res.uuid store add
+      // window.open(`http://127.0.0.1:8000/accounts/activate/OQ/${res.uuid}`);
+      Swal.fire({
+        title: "Accounts Activate Code Email",
+        input: "text",
+        inputAttributes: {
+          autocapitalize: "off",
+        },
+        showCancelButton: true,
+        confirmButtonText: "Submit",
+        showLoaderOnConfirm: true,
+        confirmButtonColor: "green",
+        allowOutsideClick: () => !Swal.isLoading(),
+      }).then((result) => {
+        console.log(result);
+        if (result.value) {
+          axios
+            .post(`http://127.0.0.1:8000/accounts/activate/${res.uuid}/`, {
+              code: result.value,
+            })
+            .then((res) => {
+              navigate("/login");
+            });
+        }
+      });
+    });
+  }
 
   const PageDisplay = () => {
     if (page === 0) {
@@ -159,22 +194,22 @@ function Form() {
                     switch (page) {
                       case 0:
                         if (
-                          formData.firstName &&
-                          formData.lastName &&
-                          newErrors.firstName === "" &&
-                          newErrors.lastName === ""
+                          formData.name &&
+                          formData.surname &&
+                          newErrors.name === "" &&
+                          newErrors.surname === ""
                         ) {
                           setPage((currPage) => currPage + 1);
                           break;
                         } else {
-                          console.log(formData.firstName.length);
-                          // console.log(newErrors.lastName.length);
-                          newErrors.firstName =
-                            formData.firstName.length < 3
+                          console.log(formData.name.length);
+                          // console.log(newErrors.surname.length);
+                          newErrors.name =
+                            formData.name.length < 3
                               ? "First name is too short"
                               : "";
-                          newErrors.lastName =
-                            formData.lastName.length < 3
+                          newErrors.surname =
+                            formData.surname.length < 3
                               ? "Last name is too short"
                               : "";
                           setErrors(newErrors);
@@ -182,9 +217,9 @@ function Form() {
                       case 1:
                         if (
                           formData.email &&
-                          formData.confirmEmail &&
+                          formData.email_confirm &&
                           newErrors.email === "" &&
-                          newErrors.confirmEmail === ""
+                          newErrors.email_confirm === ""
                         ) {
                           setPage((currPage) => currPage + 1);
                           break;
@@ -192,9 +227,9 @@ function Form() {
                       case 2:
                         if (
                           formData.password &&
-                          formData.confirmEmail &&
+                          formData.email_confirm &&
                           newErrors.password === "" &&
-                          newErrors.confirmPassword === ""
+                          newErrors.password_confirm === ""
                         ) {
                           setPage((currPage) => currPage + 1);
                           break;
@@ -207,10 +242,13 @@ function Form() {
                           newErrors.country === "" &&
                           rememberMe
                         ) {
-                          alert("Form Submitted");
+                          // navigate("/login");
                           break;
                         }
                     }
+                  }
+                  {
+                    page == 3 && handleSignUp();
                   }
                 }}
               >

@@ -1,14 +1,20 @@
 import React from "react";
+
 import HeaderModal from "./HeaderModal";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
 import { Select } from "antd";
-function Header() {
+import { connect } from "react-redux";
+
+
+function Header({dispatch,words,lang}) {
   const { Option } = Select;
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState(false);
   const [searchProduct, setSearchProduct] = useState("");
   const [searchedProducts, setSearcedProducts] = useState({});
+  const [menuOpen,setMenuOpen]=useState(false);
   useEffect(() => {
     console.log({ searchProduct });
     fetch(
@@ -23,8 +29,26 @@ function Header() {
   const handleSearch = (searchValue) => {
     setSearchProduct(searchValue);
   };
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+  const changeLang = (lang) => {
+    localStorage.setItem("language", lang);
+    dispatch({
+      type: "SET_LANG",
+      payload: lang,
+    });
+    setMenuOpen(false);
+  };
   console.log({ searchedProducts });
   // console.log({ searchProduct });
+// --------------------------------------------------
+
+
+
+
+
+ 
   return (
     <header className="bg_white">
       <div className="container">
@@ -164,6 +188,50 @@ function Header() {
                 ))}
               </Select>
             )}
+            <div style={{ position: "relative" }}>
+              {/* <button className="language-button" onClick={toggleMenu}>
+                <img
+                  style={{ width: 50 }}
+                  src={
+                    lang === "az"
+                      ? "https://upload.wikimedia.org/wikipedia/commons/5/59/Flag_of_Azerbaijan_%281991%E2%80%932013%29.svg"
+                      : "https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1280px-Flag_of_the_United_Kingdom.svg.png"
+                  }
+                  alt=""
+                />
+              </button> */}
+              {menuOpen && (
+                <div className="dropdown1">
+                  {/* {lang === "az" ? (
+                    <button
+                      className="language-button"
+                      style={{ color: lang === "en" ? "red" : "#000" }}
+                      onClick={() => changeLang("en")}
+                    >
+                      <img
+                        style={{ width: 50 }}
+                        src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1280px-Flag_of_the_United_Kingdom.svg.png"
+                        alt=""
+                      />
+                    </button>
+                  ) : (
+                    <>
+                      <button
+                        className="language-button"
+                        style={{ color: lang === "az" ? "red" : "#000" }}
+                        onClick={() => changeLang("az")}
+                      >
+                        <img
+                          style={{ width: 50 }}
+                          src="https://upload.wikimedia.org/wikipedia/commons/5/59/Flag_of_Azerbaijan_%281991%E2%80%932013%29.svg"
+                          alt=""
+                        />
+                      </button>
+                    </>
+                  )} */}
+                </div>
+              )}
+            </div>
             <div className="seach_icon">
               <svg
                 onClick={() => setSearch(!search)}
@@ -189,7 +257,7 @@ function Header() {
                 />
               </svg>
             </div>
-            <div className="basket_icon">
+            <Link to="/shoppingcard" className="basket_icon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"
@@ -238,7 +306,7 @@ function Header() {
                   strokeWidth="2"
                 />
               </svg>
-            </div>
+            </Link>
             <div className="user_icon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -270,5 +338,5 @@ function Header() {
     </header>
   );
 }
-
-export default Header;
+const t=(a)=>a;
+export default connect(t) (Header);

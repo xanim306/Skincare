@@ -3,6 +3,8 @@ function FourthInfo({ formData,errors,handleChange,rememberMe,setRememberMe }) {
   
  const handleSubmit=(e)=>{
 e.preventDedault();
+
+  
  }
 //  const [rememberMe, setRememberMe] = useState(false);
   console.log(rememberMe);

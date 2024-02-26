@@ -1,11 +1,43 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Apiservice } from "../services/api_services";
+import axios from "axios";
+import Swal from "sweetalert2";
 function Formlogin() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
   const [rememberMe, setRememberMe] = useState(false);
+
+  function handleChangeLogin() {
+    // Apiservice.login(formData)
+    //   .then((res) => {
+    //     console.log(res);
+    //     navigate("/");
+    //   })
+    //   .catch((err) => {
+    //     console.log("eeeee");
+    //   });
+    axios
+      .post(`http://127.0.0.1:8000/accounts/login/`, formData)
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("token", res.data.tokens.access);
+        localStorage.setItem("refresh", res.data.tokens.refresh);
+        const tokens = res.data.tokens.access;
+        const userid = JSON.parse(atob(tokens.split(".")[1])).user_id;
+        console.log(userid);
+        localStorage.setItem("usersID", userid);
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log("first");
+  }
+
   return (
     <>
       <div className="formlogin">
@@ -37,18 +69,17 @@ function Formlogin() {
             />
           </div>
           <div className="accept">
-            
-              <input
-                type="checkbox"
-                id="remember"
-                name="rememberMe"
-                checked={rememberMe}
-                onChange={() => setRememberMe(!rememberMe)}
-              />
-           
+            <input
+              type="checkbox"
+              id="remember"
+              name="rememberMe"
+              checked={rememberMe}
+              onChange={() => setRememberMe(!rememberMe)}
+            />
+
             <label htmlFor="remember">Remember me</label>
           </div>
-          <Link to="/login" className="login_btn">
+          <Link className="login_btn" onClick={handleChangeLogin}>
             Login
           </Link>
           <ul>

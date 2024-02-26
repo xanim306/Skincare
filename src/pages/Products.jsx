@@ -175,10 +175,14 @@ function Products({ products, API_IMAGE }) {
           </section>
         </div>
       </div>
-
-      <Slide />
-
-      <Newsletter />
+<div className="container">
+<Slide />
+</div>
+      
+<div className="container">
+<Newsletter />
+</div>
+     
     </>
   );
 }

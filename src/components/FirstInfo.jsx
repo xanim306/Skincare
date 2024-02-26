@@ -11,14 +11,14 @@ function FirstInfo({ formData, errors, handleChange }) {
             <input
               id="firstname"
               type="text"
-              name="firstName"
+              name="name"
               placeholder="First Name"
               value={formData.firstName}
               onChange={handleChange}
             />
 
             {errors.firstName && (
-              <p style={{color:"red"}}>{errors.firstName}</p>
+              <p style={{ color: "red" }}>{errors.firstName}</p>
             )}
           </div>
           <label htmlFor="lastname">Last Name</label>
@@ -26,12 +26,14 @@ function FirstInfo({ formData, errors, handleChange }) {
             <input
               id="lastname"
               type="text"
-              name="lastName"
+              name="surname"
               placeholder="Last Name"
               value={formData.lastName}
               onChange={handleChange}
             />
-            {errors.lastName && <p style={{color:"red"}}>{errors.lastName}</p>}
+            {errors.lastName && (
+              <p style={{ color: "red" }}>{errors.lastName}</p>
+            )}
           </div>
         </form>
       </div>

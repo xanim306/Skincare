@@ -1,4 +1,5 @@
 import Slide from "../components/Slide";
+
 // import { Swiper, SwiperSlide } from "swiper/react";
 // import "swiper/css";
 // import "swiper/css/pagination";
@@ -8,10 +9,18 @@ import { connect } from "react-redux";
 import Newsletter from "../components/Newsletter";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-function Product({ API_IMAGE }) {
+import axios from "axios";
+function Product({ API_IMAGE,  }) {
   const { id } = useParams();
   const [details, setDetails] = useState({});
-  // const filterProduct = products?.results?.filter((p) => p.id === +id);
+  const [say, setSay] = useState(1);
+  const [img, setImg] = useState();
+
+ 
+
+  
+
+
   useEffect(() => {
     fetch(`http://127.0.0.1:8000/products/detail/${id}/`, {
       method: "GET",
@@ -23,8 +32,89 @@ function Product({ API_IMAGE }) {
       .then((a) => a.json())
       .then((a) => {
         setDetails(a);
+        setImg(a.images[0]);
+        // console.log(a.images[0]);
       });
   }, [id]);
+
+
+
+
+
+
+  // indi
+  // function addToCart() {
+  //   const request = {
+  //     quantity: say,
+  //   };
+  //   fetch(`http://127.0.0.1:8000/products/add/basket/${id}/` ,{
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(request),
+  //   })
+  //   .then(response => {
+  //     if (response.ok) {
+  //       console.log('Ürün sepete başarıyla eklendi');
+  //       // Başarılı bir şekilde eklendiğine dair bir işlem yapabilirsiniz.
+  //     } else {
+  //       console.error('Ürün sepete eklenirken bir hata oluştu');
+  //       // Hata durumunda bir işlem yapabilirsiniz.
+  //     }
+  //   })
+  //   .catch(error => {
+  //     console.error('İstek yapılırken bir hata oluştu:', error);
+  //   });
+  // }
+
+  function countS(value) {
+    if (value == "plus") {
+      setSay((say) => say + 1);
+    } else {
+      if (say != 1) {
+        setSay((say) => say - 1);
+      }
+    }
+  }
+
+  function addToCart() {
+    const request = {
+      quantity: say,
+    };
+    axios
+      .post(`http://127.0.0.1:8000/products/add/basket/${id}/`, {...request} )
+      .then((res) => {
+        console.log(res);
+        
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+ 
+  
+  
+
+
+  // function addBasket() {
+  //   const request = {
+  //     quantity: say,
+  //   };
+  //   axios
+  //     .post(`http://127.0.0.1:8000/products/add/basket/${id}/`, request )
+  //     .then((res) => {
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }
+  //  muellim yazan
+
+ 
+
   return (
     <>
       <div className="container">
@@ -35,34 +125,39 @@ function Product({ API_IMAGE }) {
                 {details?.images?.map((d) => {
                   return (
                     <div className="single_image">
-                      <img src={`${API_IMAGE}/${d?.image}`} alt="" />
+                      <img
+                        src={`${API_IMAGE}/${d?.image}`}
+                        alt=""
+                        onClick={() => setImg(d)}
+                      />
                     </div>
                   );
                 })}
               </div>
               <div className="image">
-                <img
-                  src={`${API_IMAGE}/${details?.images?.at(0)?.image}`}
-                  alt=""
-                />
+                <img src={`${API_IMAGE}/${img?.image}`} alt="" />
               </div>
               <div className="titles">
                 <p className="subtitle">- Selling Fast</p>
                 <p>{details?.name}</p>
-                {/* <div className="title">SFD.total_price ? (
-                    <p className="oldprice">${details.price}</p>
-                  ) : null}
-                  <p className="newprice">${details.total_price}</p>
-                </div> */}
+
                 <span className="sku">SKU: </span>
                 <span className="sku_num">{details.sku}</span>
                 <div className="adding">
-                  <a href="" className="count">
-                    <i className="fa-solid fa-chevron-left"></i>
-                    <span>1</span>
-                    <i className="fa-solid fa-chevron-right"></i>
-                  </a>
-                  <a href="">Add to Cart</a>
+                  <div className="count">
+                    <i
+                      className="fa-solid fa-chevron-left"
+                      onClick={() => countS("minus")}
+                    ></i>
+                    <span>{say}</span>
+                    <i
+                      className="fa-solid fa-chevron-right"
+                      onClick={() => countS("plus")}
+                    ></i>
+                  </div>
+                  <button className="addbtn" onClick={addToCart} >
+                    Add to Cart
+                  </button>
                   <a className="heart">
                     <i className="fa-regular fa-heart"></i>
                   </a>
@@ -204,7 +299,9 @@ function Product({ API_IMAGE }) {
           </section>
         </div>
       </div>
-      <Newsletter />
+      <div className="container">
+        <Newsletter />
+      </div>
     </>
   );
 }
